@@ -10,6 +10,8 @@ We use [SkyPilot](https://github.com/skypilot-ai/skypilot) YAML to run the bench
 pip install -U skypilot
 ```
 
+Setup cloud credentials. See [SkyPilot docs](https://docs.skypilot.co/en/latest/getting-started/installation.html).
+
 ## vLLM
 
 vLLM created a [benchmark](https://github.com/simon-mo/vLLM-Benchmark/tree/main) for vLLM vs SGLang and TRT-LLM.
