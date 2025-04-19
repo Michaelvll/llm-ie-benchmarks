@@ -1,6 +1,6 @@
 # LLM Inference Engine Benchmarks
 
-This is a collection of open-source inference engine benchmarks for LLMs, created by different inference engine teams. It aims to create a fair and reproducible scripts to test the inference performance of different inference engines.
+This is a collection of open-source LLM inference engine benchmarks, created by different inference engine teams. It aims to create a fair and reproducible scripts to test the inference performance of different inference engines.
 
 We use [SkyPilot](https://github.com/skypilot-ai/skypilot) YAML to run the benchmarks on different infrastructure, making sure the benchmarks are reproducible and fair.
 
