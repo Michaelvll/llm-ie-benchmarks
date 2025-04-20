@@ -7,14 +7,13 @@ run: |
   # Get the model name from the model path, i.e. deepseek-ai/DeepSeek-R1 -> DeepSeek-R1
   MODEL_NAME=$(basename ${MODEL}) 
   if [ "$ENGINE" == "sgl" ]; then
-    uv pip install sglang[all]==0.4.5.post1
+    uv pip install sglang[all]==0.4.5.post2
     export SGL_ENABLE_JIT_DEEPGEMM=1
     python -m sglang.launch_server \
       --model ${MODEL} \
       --tp 8 \
-      --trust-remote-code \
-      --enable-dp-attention \
-      --dp-size 8 > ${ENGINE}_${MODEL_NAME}.log 2>&1 &
+      --disable-radix-cache \
+      --trust-remote-code > ${ENGINE}_${MODEL_NAME}.log 2>&1 &
   elif [ "$ENGINE" == "vllm" ]; then
     uv pip install vllm==0.8.4
     VLLM_USE_FLASHINFER_SAMPLER=1 vllm serve $MODEL \
@@ -41,28 +40,50 @@ run: |
     "10000 500"
     "30000 100"
   )
-
+  
+  # Create main results directory
   mkdir -p results
+  
+  # Array to store aggregated results
   aggregated_results="| Input Tokens | Output Tokens | Output Token Throughput (tok/s) |"
-  for pair in "${input_output_pairs[@]}"; do
-    input_len=$(echo $pair | cut -d' ' -f1)
-    output_len=$(echo $pair | cut -d' ' -f2)
-    python -m sglang.bench_serving \
-      --backend $BACKEND \
-      --num-prompts $NUM_PROMPTS \
-      --request-rate 10 \
-      --dataset-name random \
-      --random-input-len $input_len \
-      --random-output-len $output_len \
-      --random-range-ratio 1 | tee results/${ENGINE}_${MODEL_NAME}_${input_len}_${output_len}.log
-    output_token_throughput=$(grep "Output token throughput (tok/s):" results/${ENGINE}_${MODEL_NAME}_${input_len}_${output_len}.log | awk '{print $NF}')
-    aggregated_results="$aggregated_results\n|$input_len | $output_len | $output_token_throughput |"
-    echo -e "$aggregated_results"
+  
+  # Run benchmark for 3 retries
+  for retry in {1..3}; do
+      # Create retry-specific directory
+      retry_dir="results/retry-${retry}"
+      mkdir -p "$retry_dir"
+  
+      # Clear aggregated results for this retry
+      if [ $retry -eq 3 ]; then
+          aggregated_results="| Input Tokens | Output Tokens | Output Token Throughput (tok/s) |"
+      fi
+  
+      # Iterate through input-output pairs
+      for pair in "${input_output_pairs[@]}"; do
+          input_len=$(echo $pair | cut -d' ' -f1)
+          output_len=$(echo $pair | cut -d' ' -f2)
+  
+          # Run benchmark and save to retry-specific directory
+          python -m sglang.bench_serving \
+              --backend $BACKEND \
+              --num-prompts $NUM_PROMPTS \
+              --request-rate 10 \
+              --dataset-name random \
+              --random-input-len $input_len \
+              --random-output-len $output_len \
+              --random-range-ratio 1 | tee "${retry_dir}/${ENGINE}_${MODEL_NAME}_${input_len}_${output_len}.log"
+  
+          # Only collect results for the last retry
+          if [ $retry -eq 3 ]; then
+              output_token_throughput=$(grep "Output token throughput (tok/s):" "${retry_dir}/${ENGINE}_${MODEL_NAME}_${input_len}_${output_len}.log" | awk '{print $NF}')
+              aggregated_results="$aggregated_results\n|$input_len | $output_len | $output_token_throughput |"
+          fi
+      done
   done
-
+  
+  # Only print results for the last retry
   echo "Benchmark results for ${ENGINE} on ${MODEL}:"
   echo -e "$aggregated_results"
-
 
 envs:
   HF_TOKEN:
