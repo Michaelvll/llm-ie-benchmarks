@@ -3,7 +3,7 @@
 
 This collection of open-source LLM inference engine benchmarks provides **fair and reproducible** one-line commands to compare different inference engines on **identical hardware** on different infrastructures -- your own clouds or kubernetes clusters.
 
-We use [SkyPilot](https://github.com/skypilot-ai/skypilot) YAML to ensure consistent infrastructure deployment across benchmarks.
+We use [SkyPilot](https://github.com/skypilot-ai/skypilot) YAML to ensure consistent and reproducible infrastructure deployment across benchmarks.
 
 ![cover](./cover.png)
 
