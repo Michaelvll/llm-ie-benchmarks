@@ -12,6 +12,7 @@ run: |
     python -m sglang.launch_server \
       --model ${MODEL} \
       --tp 8 \
+      --disable-radix-cache \
       --trust-remote-code > ${ENGINE}_${MODEL_NAME}.log 2>&1 &
   elif [ "$ENGINE" == "vllm" ]; then
     uv pip install vllm==0.8.4
