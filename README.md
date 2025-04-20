@@ -2,9 +2,15 @@
 
 ![cover](./cover.png)
 
-This is a collection of open-source LLM inference engine benchmarks, created by different inference engine teams. It aims to offer a **fair and reproducible** one-line commands to benchmark the performance of different inference engines on same hardware.
+This collection of open-source LLM inference engine benchmarks provides **fair and reproducible** one-line commands to compare different inference engines on **identical hardware**. It serves as a centralized reference for selecting the optimal inference engine for your applications.
 
-We use [SkyPilot](https://github.com/skypilot-ai/skypilot) YAML to run the benchmarks on different infrastructure, making sure the benchmarks are reproducible and fair.
+We use [SkyPilot](https://github.com/skypilot-ai/skypilot) YAML to ensure consistent infrastructure deployment across benchmarks.
+
+## Background
+
+When different LLM inference engines start to post their performance numbers, it can be confusing to see different numbers. It can due to different configurations, or different hardware setup.
+
+This repo is trying to create a centralized place for these benchmarks to be able to run on the same hardware, with the optimal configurations (e.g. TP, DP, etc.) that can be set by the official teams for those inference engines.
 
 
 ## Installation
@@ -15,7 +21,16 @@ pip install -U "skypilot[nebius]"
 
 Setup cloud credentials. See [SkyPilot docs](https://docs.skypilot.co/en/latest/getting-started/installation.html).
 
-## vLLM
+
+## Version
+
+The version of the inference engines are as follows:
+
+- vLLM: 0.8.4
+- SGLang: 0.4.5.post1
+- TRT-LLM: NOT SUPPORTED YET
+
+## Benchmark from vLLM
 
 vLLM created a [benchmark](https://github.com/simon-mo/vLLM-Benchmark/tree/main) for vLLM vs SGLang and TRT-LLM.
 
@@ -53,7 +68,7 @@ sky launch --cloud nebius -c benchmark -d benchmark.yaml
 #   --env ENGINE=trt
 ```
 
-Stop the cluster after the benchmarks are done: 
+Automatically stop the cluster after the benchmarks are done: 
 
 ```bash
 sky autostop benchmark
@@ -62,6 +77,7 @@ sky autostop benchmark
 > [!NOTE]
 > If you would like to run the benchmarks on different infrastructure, you can change `--cloud` to other clouds or your kubernetes cluster: `--cloud k8s`.
 
+You can also change the model to one of the following: `deepseek-r1`, `qwq-32b`, `llama-8b`, `llama-3b`, `qwen-1.5b`.
 
 ### Benchmark Results
 
@@ -104,14 +120,43 @@ sky launch --cloud nebius -c benchmark benchmark.yaml
   --env ENGINE=sgl
 ```
 
-## SGLang
+## Benchmark from SGLang
 
-SGLang created a [benchmark](https://github.com/deepseek-ai/sglang/tree/main/benchmark) for SGLang on random input and output.
+SGLang created a [benchmark](https://github.com/sgl-project/sglang/issues/5514) for SGLang on random input and output. This benchmark uses the same configurations from it.
 
 ### Run the benchmarks
 
 ```bash
 cd ./sgl
 
-sky launch --cloud nebius -c benchmark benchmark.yaml --env HF_TOKEN
+# Run the benchmarks for SGLang
+sky launch --cloud nebius -c benchmark benchmark.yaml \
+  --env HF_TOKEN \
+  --env ENGINE=sgl
+
+# Run the benchmarks for vLLM
+sky launch --cloud nebius -c benchmark benchmark.yaml \
+  --env HF_TOKEN \
+  --env ENGINE=vllm
 ```
+
+### Benchmark Results
+
+#### DeepSeek-R1
+
+**CPU**: Intel(R) Xeon(R) Platinum 8468
+**GPU**: 8x NVIDIA H200
+
+**Output token throughput (tok/s)**
+
+| Input Tokens | Output Tokens | vLLM | SGLang |
+| ------------ | ------------- | ------------ | ------------ |
+|         1000 |          2000 | | 920.83  |
+|         5000 |          1000 | | 706.29 |
+|        10000 |           500 | | 371.56 |
+|        30000 |           100 | |  |
+
+
+## Contributing
+
+We welcome contributions from the community, to tune the versions and configurations for different inference engines, so as to make the benchmarks more accurate and fair.

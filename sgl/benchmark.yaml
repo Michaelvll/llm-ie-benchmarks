@@ -55,8 +55,9 @@ run: |
       --random-input-len $input_len \
       --random-output-len $output_len \
       --random-range-ratio 1 | tee results/${ENGINE}_${MODEL_NAME}_${input_len}_${output_len}.log
-    output_token_throughput=$(grep "Output token throughput" results/${ENGINE}_${MODEL_NAME}_${input_len}_${output_len}.log | cut -d' ' -f4)
+    output_token_throughput=$(grep "Output token throughput (tok/s):" results/${ENGINE}_${MODEL_NAME}_${input_len}_${output_len}.log | awk '{print $NF}')
     aggregated_results="$aggregated_results\n|$input_len | $output_len | $output_token_throughput |"
+    echo -e "$aggregated_results"
   done
 
   echo "Benchmark results for ${ENGINE} on ${MODEL}:"
