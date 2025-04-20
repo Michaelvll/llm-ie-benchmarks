@@ -81,9 +81,7 @@ sky autostop benchmark
 
 You can also change the model to one of the following: `deepseek-r1`, `qwq-32b`, `llama-8b`, `llama-3b`, `qwen-1.5b`.
 
-### Benchmark Results
-
-#### DeepSeek-R1
+### Benchmark Results for DeepSeek-R1
 
 **CPU**: Intel(R) Xeon(R) Platinum 8468
 **GPU**: 8x NVIDIA H200
@@ -123,9 +121,7 @@ sky launch --cloud nebius -c benchmark benchmark.yaml \
   --env ENGINE=vllm
 ```
 
-### Benchmark Results
-
-#### DeepSeek-R1
+### Benchmark Results for DeepSeek-R1
 
 **CPU**: Intel(R) Xeon(R) Platinum 8468
 **GPU**: 8x NVIDIA H200
