@@ -98,28 +98,9 @@ You can also change the model to one of the following: `deepseek-r1`, `qwq-32b`,
 |     sharegpt |      sharegpt | 1330.60 |  981.47 |
 
 
-
-**vLLM**
-
-Logs: [vllm_deepseek-r1.log](./vllm/logs/vllm-deepseek-r1.log)
-Command:
-```bash
-sky launch --cloud nebius -c benchmark benchmark.yaml
-  --env HF_TOKEN
-  --env MODEL=deepseek-r1
-  --env ENGINE=vllm
-```
-
-**SGLang**
-
-Logs: [sgl_deepseek-r1.log](./sgl/logs/sgl-deepseek-r1.log)
-Command:
-```bash
-sky launch --cloud nebius -c benchmark benchmark.yaml
-  --env HF_TOKEN
-  --env MODEL=deepseek-r1
-  --env ENGINE=sgl
-```
+**Logs**
+- vLLM logs: [vllm_deepseek-r1.log](./vllm/logs/vllm-deepseek-r1.log)
+- SGLang logs: [sgl_deepseek-r1.log](./sgl/logs/sgl-deepseek-r1.log)
 
 ## Benchmark from SGLang
 
@@ -152,17 +133,37 @@ sky launch --cloud nebius -c benchmark benchmark.yaml \
 
 | Input Tokens | Output Tokens | vLLM | SGLang |
 | ------------ | ------------- | ------------ | ------------ |
-|1000 | 2000 |               |1165.77 |
-|5000 | 1000 |              | 887.64 |
-|10000 | 500 |              | 433.66 |
-|30000 | 100 |              | 39.37 |
+|1000 | 2000 | 1052.20    |1165.77 |
+|5000 | 1000 | 799.60  | 887.64 |
+|10000 | 500 | 436.70  | 433.66 |
+|30000 | 100 | 37.82 | 39.37 |
+
+**Logs**
+- vLLM logs: [vllm_deepseek-r1.log](./sgl/logs/vllm-deepseek-r1.log)
+- SGLang logs: [sgl_deepseek-r1.log](./sgl/logs/sgl-deepseek-r1.log)
+
+**Using 200 prompts (vs 50 prompts in the official benchmark)**
+
+| Input Tokens | Output Tokens | vLLM    | SGLang  |
+| ------------ | ------------- | ------- | ------- |
+| 1000 | 2000 | 2683.27 |
+| 5000 | 1000 | 1117.89 |
+| 10000 | 500 | 347.77 |
+| 30000 | 100 | 33.65 |
 
 
-## Contributing
+
+## Contribution
 
 Any contributions from the community are welcome, to tune the versions and configurations for different inference engines, so as to make the benchmarks more accurate and fair.
 
 
 ## Final Thoughts
 
-All of the benchmarks relies on random input and output, without a fixed random seed, which makes the results fluctuating. Multiple runs need to be averaged to get a stable result.
+Interestingly, the benchmark results diverge from the vLLM and SGLang's official benchmark results, even with the same hardware.
+
+That indicates that the benchmark scripts of both frameworks have some slight differences, which leads to different output token throughput numbers.
+
+Both are simulated results, so the difference in these benchmark results may not
+matter significantly for real applications. A better way to do this might be to
+use the real AB test results.

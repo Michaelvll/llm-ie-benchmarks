@@ -49,7 +49,7 @@ run: |
     output_len=$(echo $pair | cut -d' ' -f2)
     python -m sglang.bench_serving \
       --backend $BACKEND \
-      --num-prompts 50 \
+      --num-prompts $NUM_PROMPTS \
       --request-rate 10 \
       --dataset-name random \
       --random-input-len $input_len \
@@ -68,3 +68,4 @@ envs:
   HF_TOKEN:
   MODEL: "deepseek-ai/DeepSeek-R1"
   ENGINE: "sgl"
+  NUM_PROMPTS: 50
