@@ -1,17 +1,18 @@
 # LLM Inference Engine Benchmarks
 
-![cover](./cover.png)
 
 This collection of open-source LLM inference engine benchmarks provides **fair and reproducible** one-line commands to compare different inference engines on **identical hardware**. It serves as a centralized reference for selecting the optimal inference engine for your applications.
 
+![cover](./cover.png)
 We use [SkyPilot](https://github.com/skypilot-ai/skypilot) YAML to ensure consistent infrastructure deployment across benchmarks.
 
 ## Background
 
-When different LLM inference engines start to post their performance numbers, it can be confusing to see different numbers. It can due to different configurations, or different hardware setup.
+When different LLM inference engines start to post their performance numbers [[1](https://x.com/vllm_project/status/1913513173342392596), [2](https://x.com/lmsysorg/status/1913064701313073656)], it can be confusing to see different numbers. It can due to different configurations, or different hardware setup.
 
 This repo is trying to create a centralized place for these benchmarks to be able to run on the same hardware, with the optimal configurations (e.g. TP, DP, etc.) that can be set by the official teams for those inference engines.
 
+Disclaimer: This repo is created for learning, and is not affiliated with any of the inference engine teams.
 
 ## Installation
 
@@ -151,12 +152,17 @@ sky launch --cloud nebius -c benchmark benchmark.yaml \
 
 | Input Tokens | Output Tokens | vLLM | SGLang |
 | ------------ | ------------- | ------------ | ------------ |
-|         1000 |          2000 | | 920.83  |
-|         5000 |          1000 | | 706.29 |
-|        10000 |           500 | | 371.56 |
-|        30000 |           100 | |  |
+|1000 | 2000 |               |1165.77 |
+|5000 | 1000 |              | 887.64 |
+|10000 | 500 |              | 433.66 |
+|30000 | 100 |              | 39.37 |
 
 
 ## Contributing
 
-We welcome contributions from the community, to tune the versions and configurations for different inference engines, so as to make the benchmarks more accurate and fair.
+Any contributions from the community are welcome, to tune the versions and configurations for different inference engines, so as to make the benchmarks more accurate and fair.
+
+
+## Final Thoughts
+
+All of the benchmarks relies on random input and output, without a fixed random seed, which makes the results fluctuating. Multiple runs need to be averaged to get a stable result.
