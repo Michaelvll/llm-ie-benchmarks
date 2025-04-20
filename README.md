@@ -83,8 +83,8 @@ You can also change the model to one of the following: `deepseek-r1`, `qwq-32b`,
 
 ### Benchmark Results for DeepSeek-R1
 
-**CPU**: Intel(R) Xeon(R) Platinum 8468
-**GPU**: 8x NVIDIA H200
+- **CPU**: Intel(R) Xeon(R) Platinum 8468
+- **GPU**: 8x NVIDIA H200
 
 **Output token throughput (tok/s)**
 
@@ -123,8 +123,8 @@ sky launch --cloud nebius -c benchmark benchmark.yaml \
 
 ### Benchmark Results for DeepSeek-R1
 
-**CPU**: Intel(R) Xeon(R) Platinum 8468
-**GPU**: 8x NVIDIA H200
+- **CPU**: Intel(R) Xeon(R) Platinum 8468
+- **GPU**: 8x NVIDIA H200
 
 **Output token throughput (tok/s)**
 
