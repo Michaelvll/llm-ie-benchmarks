@@ -163,7 +163,3 @@ Any contributions from the community are welcome, to tune the versions and confi
 Interestingly, the benchmark results diverge from the vLLM and SGLang's official benchmark results, even with the same hardware.
 
 That indicates that the benchmark scripts of both frameworks have some slight differences, which leads to different output token throughput numbers.
-
-Both are simulated results, so the difference in these benchmark results may not
-matter significantly for real applications. A better way to do this might be to
-use the real AB test results.
