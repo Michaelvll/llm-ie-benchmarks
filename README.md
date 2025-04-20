@@ -139,19 +139,22 @@ sky launch --cloud nebius -c benchmark benchmark.yaml \
 |30000 | 100 | 37.82 | 39.37 |
 
 **Logs**
-- vLLM logs: [vllm_deepseek-r1.log](./sgl/logs/vllm-deepseek-r1.log)
-- SGLang logs: [sgl_deepseek-r1.log](./sgl/logs/sgl-deepseek-r1.log)
+- vLLM logs: [vllm-deepseek-r1.log](./sgl/logs/vllm-deepseek-r1.log)
+- SGLang logs: [sgl-deepseek-r1.log](./sgl/logs/sgl-deepseek-r1.log)
 
 **Using 200 prompts (vs 50 prompts in the official benchmark)**
 
 | Input Tokens | Output Tokens | vLLM    | SGLang  |
 | ------------ | ------------- | ------- | ------- |
-| 1000 | 2000 | 2683.27 |
-| 5000 | 1000 | 1117.89 |
-| 10000 | 500 | 347.77 |
-| 30000 | 100 | 33.65 |
+| 1000 | 2000 | 2683.27 | 1040.19 |
+| 5000 | 1000 | 1117.89 | 842.14 |
+| 10000 | 500 | 347.77 | 457.40 |
+| 30000 | 100 | 33.65 | 42.76 |
 
 
+**Logs**
+- vLLM logs: [vllm-deepseek-r1-200.log](./sgl/logs/vllm-deepseek-r1-200.log)
+- SGLang logs: [sgl-deepseek-r1-200.log](./sgl/logs/sgl-deepseek-r1-200.log)
 
 ## Contribution
 
@@ -160,6 +163,8 @@ Any contributions from the community are welcome, to tune the versions and confi
 
 ## Final Thoughts
 
-Interestingly, the benchmark results diverge from the vLLM and SGLang's official benchmark results, even with the same hardware.
+Interestingly, the benchmark results diverge from the vLLM and SGLang's official benchmark results, even with the same hardware, and the same flags.
 
-That indicates that the benchmark scripts of both frameworks have some slight differences, which leads to different output token throughput numbers.
+Although both of the benchmark scripts try to simulate the real inference scenario, the throughput numbers are very sensitive to the benchmark setup -- even simply changing the number of prompts from 50 to 200 can flip the conclusion for the performance of the two engines.
+
+A better benchmark is in need to provide more insights into the performance of inference engines, while this repo could help offer a platform for the community to run the benchmarks in a fair and reproducible way, including same settings, same hardware, etc.

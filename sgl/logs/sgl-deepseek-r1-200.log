@@ -1,0 +1,241 @@
+[33mTailing logs of job 38 on cluster 'benchmark'...[0m
+[2m├── [0m[2mWaiting for task resources on 1 node.[0m
+[2m└── [0mJob started. Streaming logs... [2m(Ctrl-C to exit log streaming; job will not be killed)[0m
+[36m(task, pid=6385)[0m Using Python 3.10.13 environment at: /home/ubuntu/miniconda3
+[36m(task, pid=6385)[0m Audited 1 package in 41ms
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m Waiting for sgl server to start...
+[36m(task, pid=6385)[0m sgl server started
+[36m(task, pid=6385)[0m benchmark_args=Namespace(backend='sglang-oai', base_url=None, host='0.0.0.0', port=None, dataset_name='random', dataset_path='', model=None, tokenizer=None, num_prompts=200, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=1000, random_output_len=2000, random_range_ratio=1.0, request_rate=10.0, max_concurrency=None, output_file=None, disable_tqdm=False, disable_stream=False, return_logprob=False, seed=1, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, lora_name=None, prompt_suffix='', pd_seperated=False, flush_cache=False, warmup_requests=1, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256)
+[36m(task, pid=6385)[0m Namespace(backend='sglang-oai', base_url=None, host='0.0.0.0', port=30000, dataset_name='random', dataset_path='', model='deepseek-ai/DeepSeek-R1', tokenizer=None, num_prompts=200, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=1000, random_output_len=2000, random_range_ratio=1.0, request_rate=10.0, max_concurrency=None, output_file=None, disable_tqdm=False, disable_stream=False, return_logprob=False, seed=1, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, lora_name=None, prompt_suffix='', pd_seperated=False, flush_cache=False, warmup_requests=1, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256)
+[36m(task, pid=6385)[0m 
+[36m(task, pid=6385)[0m If you do not want to randomly sample from a dataset, please use --dataset-name random-ids.
+[36m(task, pid=6385)[0m #Input tokens: 200000
+[36m(task, pid=6385)[0m #Output tokens: 400000
+[36m(task, pid=6385)[0m Starting warmup with 1 sequences...
+[36m(task, pid=6385)[0m Warmup completed with 1 sequences. Starting main benchmark run...
+[36m(task, pid=6385)[0m 
+[36m(task, pid=6385)[0m   0%|          | 0/200 [00:00<?, ?it/s]
+[36m(task, pid=6385)[0m   0%|          | 1/200 [06:22<21:08:02, 382.32s/it]
+[36m(task, pid=6385)[0m   1%|          | 2/200 [06:23<8:42:21, 158.29s/it] 
+[36m(task, pid=6385)[0m  30%|██▉       | 59/200 [06:24<07:36,  3.24s/it]  
+[36m(task, pid=6385)[0m  48%|████▊     | 95/200 [06:24<03:00,  1.72s/it]
+[36m(task, pid=6385)[0m  59%|█████▉    | 118/200 [06:24<01:39,  1.21s/it]
+[36m(task, pid=6385)[0m  69%|██████▉   | 138/200 [06:24<00:54,  1.13it/s]
+100%|██████████| 200/200 [06:24<00:00,  1.92s/it]
+[36m(task, pid=6385)[0m 
+[36m(task, pid=6385)[0m ============ Serving Benchmark Result ============
+[36m(task, pid=6385)[0m Backend:                                 sglang-oai
+[36m(task, pid=6385)[0m Traffic request rate:                    10.0      
+[36m(task, pid=6385)[0m Max reqeuest concurrency:                not set   
+[36m(task, pid=6385)[0m Successful requests:                     200       
+[36m(task, pid=6385)[0m Benchmark duration (s):                  384.54    
+[36m(task, pid=6385)[0m Total input tokens:                      200000    
+[36m(task, pid=6385)[0m Total generated tokens:                  400000    
+[36m(task, pid=6385)[0m Total generated tokens (retokenized):    398773    
+[36m(task, pid=6385)[0m Request throughput (req/s):              0.52      
+[36m(task, pid=6385)[0m Input token throughput (tok/s):          520.10    
+[36m(task, pid=6385)[0m Output token throughput (tok/s):         1040.19   
+[36m(task, pid=6385)[0m Total token throughput (tok/s):          1560.29   
+[36m(task, pid=6385)[0m Concurrency:                             194.80    
+[36m(task, pid=6385)[0m ----------------End-to-End Latency----------------
+[36m(task, pid=6385)[0m Mean E2E Latency (ms):                   374539.73 
+[36m(task, pid=6385)[0m Median E2E Latency (ms):                 374635.96 
+[36m(task, pid=6385)[0m ---------------Time to First Token----------------
+[36m(task, pid=6385)[0m Mean TTFT (ms):                          3117.98   
+[36m(task, pid=6385)[0m Median TTFT (ms):                        1978.44   
+[36m(task, pid=6385)[0m P99 TTFT (ms):                           9213.02   
+[36m(task, pid=6385)[0m ---------------Inter-Token Latency----------------
+[36m(task, pid=6385)[0m Mean ITL (ms):                           186.32    
+[36m(task, pid=6385)[0m Median ITL (ms):                         178.87    
+[36m(task, pid=6385)[0m P95 ITL (ms):                            349.62    
+[36m(task, pid=6385)[0m P99 ITL (ms):                            357.74    
+[36m(task, pid=6385)[0m Max ITL (ms):                            10864.93  
+[36m(task, pid=6385)[0m ==================================================
+[36m(task, pid=6385)[0m | Input Tokens | Output Tokens | Output Token Throughput (tok/s) |
+[36m(task, pid=6385)[0m |1000 | 2000 | 1040.19 |
+[36m(task, pid=6385)[0m benchmark_args=Namespace(backend='sglang-oai', base_url=None, host='0.0.0.0', port=None, dataset_name='random', dataset_path='', model=None, tokenizer=None, num_prompts=200, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=5000, random_output_len=1000, random_range_ratio=1.0, request_rate=10.0, max_concurrency=None, output_file=None, disable_tqdm=False, disable_stream=False, return_logprob=False, seed=1, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, lora_name=None, prompt_suffix='', pd_seperated=False, flush_cache=False, warmup_requests=1, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256)
+[36m(task, pid=6385)[0m Namespace(backend='sglang-oai', base_url=None, host='0.0.0.0', port=30000, dataset_name='random', dataset_path='', model='deepseek-ai/DeepSeek-R1', tokenizer=None, num_prompts=200, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=5000, random_output_len=1000, random_range_ratio=1.0, request_rate=10.0, max_concurrency=None, output_file=None, disable_tqdm=False, disable_stream=False, return_logprob=False, seed=1, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, lora_name=None, prompt_suffix='', pd_seperated=False, flush_cache=False, warmup_requests=1, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256)
+[36m(task, pid=6385)[0m 
+[36m(task, pid=6385)[0m If you do not want to randomly sample from a dataset, please use --dataset-name random-ids.
+[36m(task, pid=6385)[0m #Input tokens: 1000000
+[36m(task, pid=6385)[0m #Output tokens: 200000
+[36m(task, pid=6385)[0m Starting warmup with 1 sequences...
+[36m(task, pid=6385)[0m Warmup completed with 1 sequences. Starting main benchmark run...
+[36m(task, pid=6385)[0m 
+[36m(task, pid=6385)[0m   0%|          | 0/200 [00:00<?, ?it/s]
+[36m(task, pid=6385)[0m   0%|          | 1/200 [03:55<13:01:54, 235.75s/it]
+[36m(task, pid=6385)[0m  13%|█▎        | 26/200 [03:57<18:47,  6.48s/it]   
+ 76%|███████▌  | 151/200 [03:57<00:40,  1.22it/s]
+100%|██████████| 200/200 [03:57<00:00,  1.19s/it]
+[36m(task, pid=6385)[0m 
+[36m(task, pid=6385)[0m ============ Serving Benchmark Result ============
+[36m(task, pid=6385)[0m Backend:                                 sglang-oai
+[36m(task, pid=6385)[0m Traffic request rate:                    10.0      
+[36m(task, pid=6385)[0m Max reqeuest concurrency:                not set   
+[36m(task, pid=6385)[0m Successful requests:                     200       
+[36m(task, pid=6385)[0m Benchmark duration (s):                  237.49    
+[36m(task, pid=6385)[0m Total input tokens:                      1000000   
+[36m(task, pid=6385)[0m Total generated tokens:                  200000    
+[36m(task, pid=6385)[0m Total generated tokens (retokenized):    199408    
+[36m(task, pid=6385)[0m Request throughput (req/s):              0.84      
+[36m(task, pid=6385)[0m Input token throughput (tok/s):          4210.69   
+[36m(task, pid=6385)[0m Output token throughput (tok/s):         842.14    
+[36m(task, pid=6385)[0m Total token throughput (tok/s):          5052.83   
+[36m(task, pid=6385)[0m Concurrency:                             191.59    
+[36m(task, pid=6385)[0m ----------------End-to-End Latency----------------
+[36m(task, pid=6385)[0m Mean E2E Latency (ms):                   227500.31 
+[36m(task, pid=6385)[0m Median E2E Latency (ms):                 227658.17 
+[36m(task, pid=6385)[0m ---------------Time to First Token----------------
+[36m(task, pid=6385)[0m Mean TTFT (ms):                          20195.68  
+[36m(task, pid=6385)[0m Median TTFT (ms):                        20080.46  
+[36m(task, pid=6385)[0m P99 TTFT (ms):                           37087.86  
+[36m(task, pid=6385)[0m ---------------Inter-Token Latency----------------
+[36m(task, pid=6385)[0m Mean ITL (ms):                           208.00    
+[36m(task, pid=6385)[0m Median ITL (ms):                         180.46    
+[36m(task, pid=6385)[0m P95 ITL (ms):                            351.40    
+[36m(task, pid=6385)[0m P99 ITL (ms):                            360.20    
+[36m(task, pid=6385)[0m Max ITL (ms):                            53445.08  
+[36m(task, pid=6385)[0m ==================================================
+[36m(task, pid=6385)[0m | Input Tokens | Output Tokens | Output Token Throughput (tok/s) |
+[36m(task, pid=6385)[0m |1000 | 2000 | 1040.19 |
+[36m(task, pid=6385)[0m |5000 | 1000 | 842.14 |
+[36m(task, pid=6385)[0m benchmark_args=Namespace(backend='sglang-oai', base_url=None, host='0.0.0.0', port=None, dataset_name='random', dataset_path='', model=None, tokenizer=None, num_prompts=200, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=10000, random_output_len=500, random_range_ratio=1.0, request_rate=10.0, max_concurrency=None, output_file=None, disable_tqdm=False, disable_stream=False, return_logprob=False, seed=1, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, lora_name=None, prompt_suffix='', pd_seperated=False, flush_cache=False, warmup_requests=1, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256)
+[36m(task, pid=6385)[0m Namespace(backend='sglang-oai', base_url=None, host='0.0.0.0', port=30000, dataset_name='random', dataset_path='', model='deepseek-ai/DeepSeek-R1', tokenizer=None, num_prompts=200, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=10000, random_output_len=500, random_range_ratio=1.0, request_rate=10.0, max_concurrency=None, output_file=None, disable_tqdm=False, disable_stream=False, return_logprob=False, seed=1, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, lora_name=None, prompt_suffix='', pd_seperated=False, flush_cache=False, warmup_requests=1, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256)
+[36m(task, pid=6385)[0m 
+[36m(task, pid=6385)[0m If you do not want to randomly sample from a dataset, please use --dataset-name random-ids.
+[36m(task, pid=6385)[0m #Input tokens: 2000000
+[36m(task, pid=6385)[0m #Output tokens: 100000
+[36m(task, pid=6385)[0m Starting warmup with 1 sequences...
+[36m(task, pid=6385)[0m Warmup completed with 1 sequences. Starting main benchmark run...
+[36m(task, pid=6385)[0m 
+[36m(task, pid=6385)[0m   0%|          | 0/200 [00:00<?, ?it/s]
+[36m(task, pid=6385)[0m   0%|          | 1/200 [03:38<12:03:39, 218.19s/it]
+[36m(task, pid=6385)[0m  13%|█▎        | 26/200 [03:38<17:15,  5.95s/it]   
+[36m(task, pid=6385)[0m  26%|██▌       | 51/200 [03:38<06:11,  2.49s/it]
+100%|██████████| 200/200 [03:38<00:00,  1.09s/it]
+[36m(task, pid=6385)[0m 
+[36m(task, pid=6385)[0m ============ Serving Benchmark Result ============
+[36m(task, pid=6385)[0m Backend:                                 sglang-oai
+[36m(task, pid=6385)[0m Traffic request rate:                    10.0      
+[36m(task, pid=6385)[0m Max reqeuest concurrency:                not set   
+[36m(task, pid=6385)[0m Successful requests:                     200       
+[36m(task, pid=6385)[0m Benchmark duration (s):                  218.63    
+[36m(task, pid=6385)[0m Total input tokens:                      2000000   
+[36m(task, pid=6385)[0m Total generated tokens:                  100000    
+[36m(task, pid=6385)[0m Total generated tokens (retokenized):    99522     
+[36m(task, pid=6385)[0m Request throughput (req/s):              0.91      
+[36m(task, pid=6385)[0m Input token throughput (tok/s):          9147.90   
+[36m(task, pid=6385)[0m Output token throughput (tok/s):         457.40    
+[36m(task, pid=6385)[0m Total token throughput (tok/s):          9605.30   
+[36m(task, pid=6385)[0m Concurrency:                             191.08    
+[36m(task, pid=6385)[0m ----------------End-to-End Latency----------------
+[36m(task, pid=6385)[0m Mean E2E Latency (ms):                   208881.90 
+[36m(task, pid=6385)[0m Median E2E Latency (ms):                 208962.09 
+[36m(task, pid=6385)[0m ---------------Time to First Token----------------
+[36m(task, pid=6385)[0m Mean TTFT (ms):                          57888.00  
+[36m(task, pid=6385)[0m Median TTFT (ms):                        56870.49  
+[36m(task, pid=6385)[0m P99 TTFT (ms):                           108905.57 
+[36m(task, pid=6385)[0m ---------------Inter-Token Latency----------------
+[36m(task, pid=6385)[0m Mean ITL (ms):                           303.82    
+[36m(task, pid=6385)[0m Median ITL (ms):                         183.32    
+[36m(task, pid=6385)[0m P95 ITL (ms):                            357.90    
+[36m(task, pid=6385)[0m P99 ITL (ms):                            365.52    
+[36m(task, pid=6385)[0m Max ITL (ms):                            121282.35 
+[36m(task, pid=6385)[0m ==================================================
+[36m(task, pid=6385)[0m | Input Tokens | Output Tokens | Output Token Throughput (tok/s) |
+[36m(task, pid=6385)[0m |1000 | 2000 | 1040.19 |
+[36m(task, pid=6385)[0m |5000 | 1000 | 842.14 |
+[36m(task, pid=6385)[0m |10000 | 500 | 457.40 |
+[36m(task, pid=6385)[0m benchmark_args=Namespace(backend='sglang-oai', base_url=None, host='0.0.0.0', port=None, dataset_name='random', dataset_path='', model=None, tokenizer=None, num_prompts=200, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=30000, random_output_len=100, random_range_ratio=1.0, request_rate=10.0, max_concurrency=None, output_file=None, disable_tqdm=False, disable_stream=False, return_logprob=False, seed=1, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, lora_name=None, prompt_suffix='', pd_seperated=False, flush_cache=False, warmup_requests=1, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256)
+[36m(task, pid=6385)[0m Namespace(backend='sglang-oai', base_url=None, host='0.0.0.0', port=30000, dataset_name='random', dataset_path='', model='deepseek-ai/DeepSeek-R1', tokenizer=None, num_prompts=200, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=30000, random_output_len=100, random_range_ratio=1.0, request_rate=10.0, max_concurrency=None, output_file=None, disable_tqdm=False, disable_stream=False, return_logprob=False, seed=1, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, lora_name=None, prompt_suffix='', pd_seperated=False, flush_cache=False, warmup_requests=1, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256)
+[36m(task, pid=6385)[0m 
+[36m(task, pid=6385)[0m If you do not want to randomly sample from a dataset, please use --dataset-name random-ids.
+[36m(task, pid=6385)[0m #Input tokens: 6000000
+[36m(task, pid=6385)[0m #Output tokens: 20000
+[36m(task, pid=6385)[0m Starting warmup with 1 sequences...
+[36m(task, pid=6385)[0m Warmup completed with 1 sequences. Starting main benchmark run...
+[36m(task, pid=6385)[0m 
+[36m(task, pid=6385)[0m   0%|          | 0/200 [00:00<?, ?it/s]
+[36m(task, pid=6385)[0m   0%|          | 1/200 [03:06<10:18:50, 186.59s/it]
+[36m(task, pid=6385)[0m   6%|▌         | 11/200 [03:06<38:31, 12.23s/it]   
+[36m(task, pid=6385)[0m  36%|███▌      | 71/200 [03:07<02:56,  1.36s/it]
+[36m(task, pid=6385)[0m  40%|████      | 80/200 [03:20<02:43,  1.36s/it]
+[36m(task, pid=6385)[0m  40%|████      | 81/200 [06:12<08:39,  4.37s/it]
+[36m(task, pid=6385)[0m  46%|████▌     | 91/200 [06:13<06:21,  3.50s/it]
+[36m(task, pid=6385)[0m  76%|███████▌  | 151/200 [06:13<01:03,  1.30s/it]
+[36m(task, pid=6385)[0m  80%|████████  | 160/200 [06:30<00:51,  1.30s/it]
+[36m(task, pid=6385)[0m  80%|████████  | 161/200 [07:47<01:31,  2.36s/it]
+ 90%|█████████ | 181/200 [07:47<00:32,  1.72s/it]
+100%|██████████| 200/200 [07:47<00:00,  2.34s/it]
+[36m(task, pid=6385)[0m 
+[36m(task, pid=6385)[0m ============ Serving Benchmark Result ============
+[36m(task, pid=6385)[0m Backend:                                 sglang-oai
+[36m(task, pid=6385)[0m Traffic request rate:                    10.0      
+[36m(task, pid=6385)[0m Max reqeuest concurrency:                not set   
+[36m(task, pid=6385)[0m Successful requests:                     200       
+[36m(task, pid=6385)[0m Benchmark duration (s):                  467.78    
+[36m(task, pid=6385)[0m Total input tokens:                      6000000   
+[36m(task, pid=6385)[0m Total generated tokens:                  20000     
+[36m(task, pid=6385)[0m Total generated tokens (retokenized):    19860     
+[36m(task, pid=6385)[0m Request throughput (req/s):              0.43      
+[36m(task, pid=6385)[0m Input token throughput (tok/s):          12826.64  
+[36m(task, pid=6385)[0m Output token throughput (tok/s):         42.76     
+[36m(task, pid=6385)[0m Total token throughput (tok/s):          12869.40  
+[36m(task, pid=6385)[0m Concurrency:                             131.64    
+[36m(task, pid=6385)[0m ----------------End-to-End Latency----------------
+[36m(task, pid=6385)[0m Mean E2E Latency (ms):                   307881.19 
+[36m(task, pid=6385)[0m Median E2E Latency (ms):                 358889.97 
+[36m(task, pid=6385)[0m ---------------Time to First Token----------------
+[36m(task, pid=6385)[0m Mean TTFT (ms):                          231602.19 
+[36m(task, pid=6385)[0m Median TTFT (ms):                        231767.13 
+[36m(task, pid=6385)[0m P99 TTFT (ms):                           444251.01 
+[36m(task, pid=6385)[0m ---------------Inter-Token Latency----------------
+[36m(task, pid=6385)[0m Mean ITL (ms):                           774.45    
+[36m(task, pid=6385)[0m Median ITL (ms):                         54.13     
+[36m(task, pid=6385)[0m P95 ITL (ms):                            56.84     
+[36m(task, pid=6385)[0m P99 ITL (ms):                            588.08    
+[36m(task, pid=6385)[0m Max ITL (ms):                            162949.24 
+[36m(task, pid=6385)[0m ==================================================
+[36m(task, pid=6385)[0m | Input Tokens | Output Tokens | Output Token Throughput (tok/s) |
+[36m(task, pid=6385)[0m |1000 | 2000 | 1040.19 |
+[36m(task, pid=6385)[0m |5000 | 1000 | 842.14 |
+[36m(task, pid=6385)[0m |10000 | 500 | 457.40 |
+[36m(task, pid=6385)[0m |30000 | 100 | 42.76 |
+[36m(task, pid=6385)[0m Benchmark results for sgl on deepseek-ai/DeepSeek-R1:
+[36m(task, pid=6385)[0m | Input Tokens | Output Tokens | Output Token Throughput (tok/s) |
+[36m(task, pid=6385)[0m |1000 | 2000 | 1040.19 |
+[36m(task, pid=6385)[0m |5000 | 1000 | 842.14 |
+[36m(task, pid=6385)[0m |10000 | 500 | 457.40 |
+[36m(task, pid=6385)[0m |30000 | 100 | 42.76 |
+[0m[32m✓ Job finished (status: SUCCEEDED).[0m
