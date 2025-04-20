@@ -1,7 +1,7 @@
 # LLM Inference Engine Benchmarks
 
 
-This collection of open-source LLM inference engine benchmarks provides **fair and reproducible** one-line commands to compare different inference engines on **identical hardware**. It serves as a centralized reference for selecting the optimal inference engine for your applications.
+This collection of open-source LLM inference engine benchmarks provides **fair and reproducible** one-line commands to compare different inference engines on **identical hardware** on different infrastructures -- your own clouds or kubernetes clusters.
 
 ![cover](./cover.png)
 We use [SkyPilot](https://github.com/skypilot-ai/skypilot) YAML to ensure consistent infrastructure deployment across benchmarks.
