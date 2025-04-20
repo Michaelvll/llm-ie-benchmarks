@@ -81,6 +81,10 @@ run: |
       done
   done
   
+  echo "== Server logs for ${ENGINE} on ${MODEL} =="
+  cat ${ENGINE}_${MODEL_NAME}.log
+  echo "== End of server logs =="
+
   # Only print results for the last retry
   echo "Benchmark results for ${ENGINE} on ${MODEL}:"
   echo -e "$aggregated_results"
