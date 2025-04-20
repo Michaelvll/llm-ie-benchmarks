@@ -16,11 +16,11 @@ mkdir -p ~/benchmark_results
 
 # Clone the vLLM benchmark repository
 echo "Cloning vLLM-Benchmark repository..."
-git clone https://github.com/simon-mo/vLLM-Benchmark ~/vLLM-Benchmark
+git clone https://github.com/simon-mo/vLLM-Benchmark ~/vLLM-Benchmark || true
 cd ~/vLLM-Benchmark
 
 echo "Cloning vLLM benchmarks directory..."
-just clone-vllm-benchmarks
+just clone-vllm-benchmarks || true
 uv pip install -r requirements-benchmark.txt
 
 # Setup environment and download datasets

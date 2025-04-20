@@ -2,7 +2,7 @@
 
 ![cover](./cover.png)
 
-This is a collection of open-source LLM inference engine benchmarks, created by different inference engine teams. It aims to create a **fair and reproducible** scripts to test the inference performance of different inference engines.
+This is a collection of open-source LLM inference engine benchmarks, created by different inference engine teams. It aims to offer a **fair and reproducible** one-line commands to benchmark the performance of different inference engines on same hardware.
 
 We use [SkyPilot](https://github.com/skypilot-ai/skypilot) YAML to run the benchmarks on different infrastructure, making sure the benchmarks are reproducible and fair.
 
@@ -74,15 +74,12 @@ sky autostop benchmark
 
 | Input Tokens | Output Tokens | vLLM | SGLang |
 | ------------ | ------------- | ------------ | ------------ |
-|         1000 |          2000 | 1124.66 | 971.49 |
-|         5000 |          1000 |  846.07 | 813.83 |
-|        10000 |           500 |  440.85 | 390.35 |
-|        30000 |           100 |   37.03 |  33.11 |
-|     sharegpt |      sharegpt | 1323.74 | 836.45 |
+|         1000 |          2000 | 1136.92 | 1041.14 |
+|         5000 |          1000 |  857.13 |  821.40 |
+|        10000 |           500 |  441.53 |  389.84 |
+|        30000 |           100 |   37.07 |   33.94 |
+|     sharegpt |      sharegpt | 1330.60 |  981.47 |
 
-After turning off [Nvidia GPU ECC mode](https://www.nvidia.com/content/Control-Panel-Help/vLatest/en-us/mergedProjects/3D%20Settings/To_turn_your_GPU_ECC_on_or_off.htm) (see `experimental.config_overrides.nvidia_gpus.disable_ecc`), the throughput is higher.
-
-<!-- TODO -->
 
 
 **vLLM**
@@ -107,34 +104,6 @@ sky launch --cloud nebius -c benchmark benchmark.yaml
   --env ENGINE=sgl
 ```
 
-
-<!-- 
-**TRT-LLM**
-```bash
-sky launch --cloud nebius -c benchmark benchmark.yaml
-  --env HF_TOKEN
-  --env MODEL=deepseek-r1
-  --env ENGINE=trt
-```
--->
-
-<!-- 
-#### Llama-8B
-
-
-**Output token throughput (tok/s)**
-
-| Input Tokens | Output Tokens | vLLM | SGLang |
-| ------------ | ------------- | ------------ | 
-|         1000 |          2000 | 4443.01 |
-|         5000 |          1000 | 2413.53 |
-|        10000 |           500 | 1140.73 |
-|        30000 |           100 |  105.23 |
-|     sharegpt |      sharegpt | 1978.90 |
-
- -->
-
-
 ## SGLang
 
 SGLang created a [benchmark](https://github.com/deepseek-ai/sglang/tree/main/benchmark) for SGLang on random input and output.
@@ -144,5 +113,5 @@ SGLang created a [benchmark](https://github.com/deepseek-ai/sglang/tree/main/ben
 ```bash
 cd ./sgl
 
-sky launch --cloud nebius -c benchmark benchmark.yaml
+sky launch --cloud nebius -c benchmark benchmark.yaml --env HF_TOKEN
 ```
