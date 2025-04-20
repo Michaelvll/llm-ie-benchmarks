@@ -1,0 +1,61 @@
+resources:
+  accelerators: H200:8
+  disk_size: 1000
+  memory: 750+
+
+setup: |
+  set -e
+  uv pip install sglang==0.4.5.post1
+
+run: |
+  export SGL_ENABLE_JIT_DEEPGEMM=1
+  python3 -m sglang.launch_server \
+    --model ${MODEL} \
+    --tp 8 \
+    --trust-remote-code \
+    --enable-dp-attention \
+    --dp-size 8 > ${ENGINE}_${MODEL}.log 2>&1 &
+
+  until grep -q "Server started" ${ENGINE}_${MODEL}.log; do
+    sleep 5
+    echo "Waiting for ${ENGINE} server to start..."
+  done
+  echo "$ENGINE server started"
+
+  BACKEND="$ENGINE"
+  if [ "$ENGINE" == "sgl" ]; then
+    BACKEND="sglang-oai"
+  fi
+
+  input_output_pairs=(
+    "1000 2000"
+    "5000 1000"
+    "10000 500"
+    "30000 100"
+  )
+
+  mkdir -p results
+  aggregated_results="| Input Tokens | Output Tokens | Output Token Throughput (tok/s) |"
+  for pair in "${input_output_pairs[@]}"; do
+    input_len=$(echo $pair | cut -d' ' -f1)
+    output_len=$(echo $pair | cut -d' ' -f2)
+    python3 -m sglang.bench_serving \
+      --backend $BACKEND \
+      --num-prompts 50 \
+      --request-rate 10 \
+      --dataset-name random \
+      --random-input-len $input_len \
+      --random-output-len $output_len \
+      --random-range-ratio 1 | tee results/${ENGINE}_${MODEL}_${input_len}_${output_len}.log
+    output_token_throughput=$(grep "Output token throughput" results/${ENGINE}_${MODEL}_${input_len}_${output_len}.log | cut -d' ' -f4)
+    aggregated_results="$aggregated_results\n|$input_len | $output_len | $output_token_throughput |"
+  done
+
+  echo "Benchmark results for ${ENGINE} on ${MODEL}:"
+  echo -e "$aggregated_results"
+
+
+envs:
+  HF_TOKEN:
+  MODEL: "deepseek-ai/DeepSeek-R1"
+  ENGINE: "sgl"

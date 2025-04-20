@@ -15,23 +15,32 @@ setup: |
 
 run: |
   # Log system information
+  unset OMP_NUM_THREADS
   nvidia-smi
+  
+  lscpu
 
   cd ~/vLLM-Benchmark
 
   just serve ${ENGINE} ${MODEL} > ${ENGINE}_${MODEL}.log 2>&1 &
 
-  if [ "${ENGINE}" == "vllm" ]; then
+  if [ "${ENGINE}" == "vllm" || "${ENGINE}" == "sgl" ]; then
     until grep -q "Started server process" ${ENGINE}_${MODEL}.log; do
       sleep 5
       echo "Waiting for ${ENGINE} server to start..."
     done
-    echo "vLLM server started"
+    echo "$ENGINE server started"
+  # elif [ "${ENGINE}" == "trt" ]; then
+  #   until grep -q "Server started" ${ENGINE}_${MODEL}.log; do
+  #     sleep 5
+  #     echo "Waiting for ${ENGINE} server to start..."
+  #   done
+  #   echo "$ENGINE server started"
   fi
 
   just run-sweeps ${ENGINE} ${MODEL}
 
-  just show-results
+  just show-results ${MODEL}
   
 
 envs:

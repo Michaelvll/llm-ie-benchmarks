@@ -8,7 +8,7 @@ echo "Installing system dependencies..."
 sudo apt-get update -y
 sudo apt-get install -y git-lfs
 
-curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | sudo bash -s -- --to /usr/local/bin
+curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | sudo bash -s -- --to /usr/local/bin || true
 
 # Create benchmark directories
 echo "Creating benchmark directories..."
