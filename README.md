@@ -160,7 +160,7 @@ Any contributions from the community are welcome, to tune the versions and confi
 
 ## Final Thoughts
 
-Interestingly, the benchmark results diverge from the vLLM and SGLang's official benchmark results, even with the same hardware, and the same flags.
+Interestingly, vLLM and SGLang's official benchmark results diverge, even with the same hardware, and the same flags.
 
 Although both of the benchmark scripts try to simulate the real inference scenario, the throughput numbers are very sensitive to the benchmark setup -- even simply changing the number of prompts from 50 to 200 can flip the conclusion for the performance of the two engines.
 
