@@ -88,7 +88,7 @@ You can also change the model to one of the following: `deepseek-r1`, `qwq-32b`,
 
 **Output token throughput (tok/s)**
 
-| Input Tokens | Output Tokens | vLLM | SGLang |
+| Input Tokens | Output Tokens | vLLM v0.8.4 | SGLang v0.4.5.post1 |
 | ------------ | ------------- | ------------ | ------------ |
 |         1000 |          2000 | 1136.92 | 1041.14 |
 |         5000 |          1000 |  857.13 |  821.40 |
@@ -128,7 +128,7 @@ sky launch --cloud nebius -c benchmark benchmark.yaml \
 
 **Output token throughput (tok/s)**
 
-| Input Tokens | Output Tokens | vLLM | SGLang |
+| Input Tokens | Output Tokens | vLLM v0.8.4 | SGLang v0.4.5.post1 |
 | ------------ | ------------- | ------------ | ------------ |
 |1000 | 2000 | 1052.20    |1165.77 |
 |5000 | 1000 | 799.60  | 887.64 |
@@ -141,7 +141,7 @@ sky launch --cloud nebius -c benchmark benchmark.yaml \
 
 **Output token throughput (tok/s): Using 200 prompts (vs 50 prompts in the official benchmark)**
 
-| Input Tokens | Output Tokens | vLLM    | SGLang  |
+| Input Tokens | Output Tokens | vLLM v0.8.4 | SGLang v0.4.5.post1  |
 | ------------ | ------------- | ------- | ------- |
 | 1000 | 2000 | 2683.27 | 1040.19 |
 | 5000 | 1000 | 1117.89 | 842.14 |
