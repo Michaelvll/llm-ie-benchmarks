@@ -24,21 +24,22 @@ run: |
 
   just serve ${ENGINE} ${MODEL} > ${ENGINE}_${MODEL}.log 2>&1 &
 
-  if [ "${ENGINE}" == "vllm" || "${ENGINE}" == "sgl" ]; then
-    until grep -q "Started server process" ${ENGINE}_${MODEL}.log; do
-      sleep 5
-      echo "Waiting for ${ENGINE} server to start..."
-    done
-    echo "$ENGINE server started"
-  # elif [ "${ENGINE}" == "trt" ]; then
-  #   until grep -q "Server started" ${ENGINE}_${MODEL}.log; do
-  #     sleep 5
-  #     echo "Waiting for ${ENGINE} server to start..."
-  #   done
-  #   echo "$ENGINE server started"
-  fi
+  until grep -q "Started server process" ${ENGINE}_${MODEL}.log; do
+    sleep 5
+    echo "Waiting for ${ENGINE} server to start..."
+  done
+  sleep 10
+  echo "$ENGINE server started"
 
   just run-sweeps ${ENGINE} ${MODEL}
+
+  if [ "$ENGINE" == "sgl" ]; then
+    # SGLang has a JIT code generation overhead, so we discard the first run,
+    # and run the sweeps again.
+    just show-results ${MODEL}
+    rm results/$MODEL/$ENGINE-*.json || true
+    just run-sweeps ${ENGINE} ${MODEL}
+  fi
 
   just show-results ${MODEL}
   
@@ -47,3 +48,9 @@ envs:
   MODEL: "llama-8b"
   ENGINE: "vllm"
   HF_TOKEN:
+
+
+# experimental:
+#   config_overrides:
+#     nvidia_gpus:
+#       disable_ecc: true
