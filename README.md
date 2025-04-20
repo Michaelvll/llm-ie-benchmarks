@@ -164,4 +164,4 @@ Interestingly, the benchmark results diverge from the vLLM and SGLang's official
 
 Although both of the benchmark scripts try to simulate the real inference scenario, the throughput numbers are very sensitive to the benchmark setup -- even simply changing the number of prompts from 50 to 200 can flip the conclusion for the performance of the two engines.
 
-A better benchmark is in need to provide more insights into the performance of inference engines, while this repo could help offer a platform for the community to run the benchmarks in a fair and reproducible way, including same settings, same hardware, etc.
+A better benchmark is in need to provide more insights into the performance of inference engines, while this repo could offer a platform for the community to run the benchmarks in a fair and reproducible way, including same settings, same hardware, etc.
