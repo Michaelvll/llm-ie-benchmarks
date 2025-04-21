@@ -47,8 +47,11 @@ run: |
   # Array to store aggregated results
   aggregated_results="| Input Tokens | Output Tokens | Output Token Throughput (tok/s) |"
   
-  # Run benchmark for 3 retries
+  # Run benchmark for 3 retries, as SGLang's JIT code generation needs
+  # to warm up.
   for retry in {1..3}; do
+      echo "== Running retry ${retry} =="
+      echo "== Running retry ${retry} ==" >> ${ENGINE}_${MODEL_NAME}.log
       # Create retry-specific directory
       retry_dir="results/retry-${retry}"
       mkdir -p "$retry_dir"

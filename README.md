@@ -29,7 +29,7 @@ Setup cloud credentials. See [SkyPilot docs](https://docs.skypilot.co/en/latest/
 The version of the inference engines are as follows:
 
 - vLLM: 0.8.4
-- SGLang: 0.4.5.post1
+- SGLang: 0.4.5.post1/0.4.5.post2
 - TRT-LLM: NOT SUPPORTED YET
 
 ## Benchmark from vLLM
@@ -99,7 +99,9 @@ You can also change the model to one of the following: `deepseek-r1`, `qwq-32b`,
 
 **Logs**
 - vLLM logs: [vllm_deepseek-r1.log](./vllm/logs/vllm-deepseek-r1.log)
-- SGLang logs: [sgl_deepseek-r1.log](./sgl/logs/sgl-deepseek-r1.log)
+- SGLang logs: [sgl_deepseek-r1.log](./vllm/logs/sgl-deepseek-r1.log)
+Logs are dumped with `sky logs benchmark > vllm/logs/$ENGINE-deepseek-r1.log`.
+
 
 ## Benchmark from SGLang
 
@@ -128,31 +130,31 @@ sky launch --cloud nebius -c benchmark benchmark.yaml \
 
 **Output token throughput (tok/s)**
 
-| Input Tokens | Output Tokens | vLLM v0.8.4 | SGLang v0.4.5.post1 |
+| Input Tokens | Output Tokens | vLLM v0.8.4 | SGLang v0.4.5.post2 |
 | ------------ | ------------- | ------------ | ------------ |
-|1000 | 2000 | 1052.20    |1165.77 |
-|5000 | 1000 | 799.60  | 887.64 |
-|10000 | 500 | 436.70  | 433.66 |
-|30000 | 100 | 37.82 | 39.37 |
+|1000 | 2000 | 1042.17 | 1335.40 |
+|5000 | 1000 | 794.54  | 954.29 |
+|10000 | 500 | 436.08  | 424.64 |
+|30000 | 100 | 37.76   | 47.02 |
 
 **Logs**
 - vLLM logs: [vllm-deepseek-r1.log](./sgl/logs/vllm-deepseek-r1.log)
 - SGLang logs: [sgl-deepseek-r1.log](./sgl/logs/sgl-deepseek-r1.log)
+Logs are dumped with `sky logs benchmark > vllm/logs/$ENGINE-deepseek-r1.log`.
 
-<!-- **Output token throughput (tok/s): Using 200 prompts (vs 50 prompts in the official benchmark)**
+**Output token throughput (tok/s): Using 200 prompts (vs 50 prompts in the official benchmark)**
 
-| Input Tokens | Output Tokens | vLLM v0.8.4 | SGLang v0.4.5.post1  |
+| Input Tokens | Output Tokens | vLLM v0.8.4 | SGLang v0.4.5.post2  |
 | ------------ | ------------- | ------- | ------- |
-| 1000 | 2000 | 2683.27 | 1040.19 |
-| 5000 | 1000 | 1117.89 | 842.14 |
-| 10000 | 500 | 347.77 | 457.40 |
-| 30000 | 100 | 33.65 | 42.76 |
-
+| 1000 | 2000 | 2498.90 | 1686.52 |
+| 5000 | 1000 | 930.93 | 846.40 |
+| 10000 | 500 | 341.70 | 385.95 |
+| 30000 | 100 | 38.44 | 40.18 |
 
 **Logs**
 - vLLM logs: [vllm-deepseek-r1-200.log](./sgl/logs/vllm-deepseek-r1-200.log)
 - SGLang logs: [sgl-deepseek-r1-200.log](./sgl/logs/sgl-deepseek-r1-200.log)
--->
+
 
 ## Contribution
 
