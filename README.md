@@ -29,7 +29,7 @@ Setup cloud credentials. See [SkyPilot docs](https://docs.skypilot.co/en/latest/
 The version of the inference engines are as follows:
 
 - vLLM: 0.8.4
-- SGLang: 0.4.5.post1/0.4.5.post2
+- SGLang: 0.4.5.post1/0.4.5.post3
 - TRT-LLM: NOT SUPPORTED YET
 
 ## Benchmark from vLLM
@@ -130,12 +130,12 @@ sky launch --cloud nebius -c benchmark benchmark.yaml \
 
 **Output token throughput (tok/s)**
 
-| Input Tokens | Output Tokens | vLLM v0.8.4 | SGLang v0.4.5.post2 |
+| Input Tokens | Output Tokens | vLLM v0.8.4 (2025-04-14) | SGLang v0.4.5.post3 (2025-04-21) |
 | ------------ | ------------- | ------------ | ------------ |
-|1000 | 2000 | 1042.17 | 1335.40 |
-|5000 | 1000 | 794.54  | 954.29 |
-|10000 | 500 | 436.08  | 424.64 |
-|30000 | 100 | 37.76   | 47.02 |
+|1000 | 2000 | 1042.17 | 1329.14 |
+|5000 | 1000 | 794.54  | 951.64 |
+|10000 | 500 | 436.08  | 479.69 |
+|30000 | 100 | 37.76   | 47.38 |
 
 **Logs**
 - vLLM logs: [vllm-deepseek-r1.log](./sgl/logs/vllm-deepseek-r1.log)
@@ -144,12 +144,12 @@ Logs are dumped with `sky logs benchmark > vllm/logs/$ENGINE-deepseek-r1.log`.
 
 **Output token throughput (tok/s): Using 200 prompts (vs 50 prompts in the official benchmark)**
 
-| Input Tokens | Output Tokens | vLLM v0.8.4 | SGLang v0.4.5.post2  |
+| Input Tokens | Output Tokens | vLLM v0.8.4 (2025-04-14) | SGLang v0.4.5.post3 (2025-04-21) |
 | ------------ | ------------- | ------- | ------- |
-| 1000 | 2000 | 2498.90 | 1686.52 |
-| 5000 | 1000 | 930.93 | 846.40 |
-| 10000 | 500 | 341.70 | 385.95 |
-| 30000 | 100 | 38.44 | 40.18 |
+| 1000 | 2000 | 2498.90 | 3276.05 |
+| 5000 | 1000 | 930.93 | 1322.31 |
+| 10000 | 500 | 341.70 | 501.95 |
+| 30000 | 100 | 38.44 | 47.68 |
 
 **Logs**
 - vLLM logs: [vllm-deepseek-r1-200.log](./sgl/logs/vllm-deepseek-r1-200.log)
