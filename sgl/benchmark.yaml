@@ -7,7 +7,7 @@ run: |
   # Get the model name from the model path, i.e. deepseek-ai/DeepSeek-R1 -> DeepSeek-R1
   MODEL_NAME=$(basename ${MODEL}) 
   if [ "$ENGINE" == "sgl" ]; then
-    uv pip install sglang[all]==0.4.5.post2
+    uv pip install sglang[all]==0.4.5.post3
     export SGL_ENABLE_JIT_DEEPGEMM=1
     python -m sglang.launch_server \
       --model ${MODEL} \
