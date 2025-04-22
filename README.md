@@ -139,7 +139,8 @@ sky launch --cloud nebius -c benchmark benchmark.yaml \
 
 **Logs**
 - vLLM logs: [vllm-deepseek-r1.log](./sgl/logs/vllm-deepseek-r1.log)
-- SGLang logs: [sgl-deepseek-r1.log](./sgl/logs/sgl-deepseek-r1.log)
+- SGLang logs: [sgl-0.4.5.post3-deepseek-r1.log](./sgl/logs/sgl-0.4.5.post3-deepseek-r1.log)
+
 Logs are dumped with `sky logs benchmark > vllm/logs/$ENGINE-deepseek-r1.log`.
 
 **Output token throughput (tok/s): Using 200 prompts (vs 50 prompts in the official benchmark)**
@@ -153,7 +154,7 @@ Logs are dumped with `sky logs benchmark > vllm/logs/$ENGINE-deepseek-r1.log`.
 
 **Logs**
 - vLLM logs: [vllm-deepseek-r1-200.log](./sgl/logs/vllm-deepseek-r1-200.log)
-- SGLang logs: [sgl-deepseek-r1-200.log](./sgl/logs/sgl-deepseek-r1-200.log)
+- SGLang logs: [sgl-0.4.5.post3-deepseek-r1-200.log](./sgl/logs/sgl-0.4.5.post3-deepseek-r1-200.log)
 
 
 ## Contribution
